@@ -430,6 +430,8 @@ function FreeboardModel(datasourcePlugins, widgetPlugins, freeboardUI)
 			if(self.allow_edit() && self.panes().length == 0)
 			{
 				self.setEditing(true);
+			} else {
+				self.setEditing(false);
 			}
 
 			if(_.isFunction(finishedCallback))
@@ -534,7 +536,7 @@ function FreeboardModel(datasourcePlugins, widgetPlugins, freeboardUI)
 		}
 	}
 
-	this.saveDashboardClicked = function(){
+	this.saveDashboardClicked = function(_thisref, event){
 		var target = $(event.currentTarget);
 		var siblingsShown = target.data('siblings-shown') || false;
 		if(!siblingsShown){
